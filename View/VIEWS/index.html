@@ -5,88 +5,429 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css" />
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha384-..." crossorigin="anonymous">
 
+    <link rel="stylesheet" href="../CSS/index.css">
 </head>
 
 <body>
 
-    <div class="dashboard-nav">
-        <header>
-            <a href="#!" class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </a>
-            <a href="#" class="brand-logo">
-                <i class="fas fa-anchor"></i>
-                <span>BRAND</span>
-            </a>
-        </header>
-        <nav class="dashboard-nav-list">
-            <a href="#" class="dashboard-nav-item">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="#" class="dashboard-nav-item active">
-                <i class="fas fa-tachometer-alt"></i>
-                dashboard
-            </a>
-            <a href="#" class="dashboard-nav-item">
-                <i class="fas fa-file-upload"></i>
-                Upload
-            </a>
-            <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                    <i class="fas fa-photo-video"></i>
-                    Media
-                </a>
-                <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Images</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Video</a>
-                </div>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo" aria-label="Home">FORUM</a>
+            <div class="search-bar">
+                <form action="/search" method="GET">
+                    <input type="text" placeholder="Buscar en Forum">
+                </form>
             </div>
-            <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                    <i class="fas fa-users"></i>
-                    Users
-                </a>
-                <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Subscribed</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Non-subscribed</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Banned</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">New</a>
-                </div>
+            <div class="actions">
+                <a href="https://www.reddit.com/login" class="login">Iniciar sesión</a>
             </div>
-            <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                    <i class="fas fa-money-check-alt"></i>
-                    Payments
-                </a>
-                <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                    <a href="#" class="dashboard-nav-dropdown-item"> Projections</a>
-                </div>
-            </div>
-            <a href="#" class="dashboard-nav-item">
-                <i class="fas fa-cogs"></i>
-                Settings
-            </a>
-            <a href="#" class="dashboard-nav-item">
-                <i class="fas fa-user"></i>
-                Profile
-            </a>
-            <div class="nav-item-divider"></div>
-            <a href="#" class="dashboard-nav-item">
-                <i class="fas fa-sign-out-alt"></i>
-                Logout
-            </a>
         </nav>
+    </header>
 
+    <div class="container">
+
+        <div class="dashboard-nav">
+            <header>
+                <a href="#!" class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="#" class="brand-logo">
+                    <i class="fas fa-anchor"></i>
+                    <span>BRAND</span>
+                </a>
+            </header>
+            <nav class="dashboard-nav-list">
+                <a href="#" class="dashboard-nav-item active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    dashboard
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-file-upload"></i>
+                    Upload
+                </a>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-photo-video"></i>
+                        Media
+                        <i id="media-icon" class="fas fa-arrow-circle-down icon-right"></i> <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Recent</a>
+                        <a href="#" class="dashboard-nav-item">Images</a>
+                        <a href="#" class="dashboard-nav-item">Video</a>
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-users"></i>
+                        Users
+                        <i id="users-icon" class="fas fa-arrow-circle-down  icon-right"></i>
+                        <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Subscribed</a>
+                        <a href="#" class="dashboard-nav-item">Non-subscribed</a>
+                        <a href="#" class="dashboard-nav-item">Banned</a>
+                        <a href="#" class="dashboard-nav-item">New</a>
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-money-check-alt"></i>
+                        Payments
+                        <i id="payments-icon" class="fas fa-arrow-circle-down icon-right"></i>
+                        <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Recent</a>
+                        <a href="#" class="dashboard-nav-item"> Projections</a>
+                    </div>
+                </div>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-cogs"></i>
+                    Settings
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+                <div class="nav-item-divider"></div>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <div class="cardHeader">
+                    <div class="btnUser">
+                        <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+                        <span class="username">Raul</span>
+                    </div>
+                    <span class="creationDate">hace 8 h</span>
+                </div>
+                <h2 class="text">Glory to spez</h2>
+                <div class="prompt">
+                    <span class="text">Glory se ha convertido en pez</span>
+                </div>
+                <img src="../images/glory-to-spez-v0-i2zxix7ly7sb1.webp" class="postImage">
+                <div class="icons">
+                    <button class="likeButton">
+                        <i class="fas fa-heart icon"></i>
+                        <b>
+                            <span class="likeCount">120 mil</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-comment icon"></i>
+                        <b>
+                            <span class="likeCount">678</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-share icon"></i>
+                        <b>
+                            <span class="likeCount">1378</span>
+                        </b>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardHeader">
+                    <div class="btnUser">
+                        <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+                        <span class="username">Raul</span>
+                    </div>
+                    <span class="creationDate">hace 8 h</span>
+                </div>
+                <h2 class="text">Glory to spez</h2>
+                <div class="prompt">
+                    <span class="text">Glory se ha convertido en pez</span>
+                </div>
+                <img src="../images/glory-to-spez-v0-i2zxix7ly7sb1.webp" class="postImage">
+                <div class="icons">
+                    <button class="likeButton">
+                        <i class="fas fa-heart icon"></i>
+                        <b>
+                            <span class="likeCount">120 mil</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-comment icon"></i>
+                        <b>
+                            <span class="likeCount">678</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-share icon"></i>
+                        <b>
+                            <span class="likeCount">1378</span>
+                        </b>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardHeader">
+                    <div class="btnUser">
+                        <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+                        <span class="username">Raul</span>
+                    </div>
+                    <span class="creationDate">hace 8 h</span>
+                </div>
+                <h2 class="text">Glory to spez</h2>
+                <div class="prompt">
+                    <span class="text">Glory se ha convertido en pez</span>
+                </div>
+                <img src="../images/glory-to-spez-v0-i2zxix7ly7sb1.webp" class="postImage">
+                <div class="icons">
+                    <button class="likeButton">
+                        <i class="fas fa-heart icon"></i>
+                        <b>
+                            <span class="likeCount">120 mil</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-comment icon"></i>
+                        <b>
+                            <span class="likeCount">678</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-share icon"></i>
+                        <b>
+                            <span class="likeCount">1378</span>
+                        </b>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="custom-div">
+            <!-- Contenido del nuevo div -->
+            <b>
+                <p>Usuarios populares</p>
+            </b>
+
+            <div class="custom-scroll-container">
+
+                <a href="/r/explainlikeimfive" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">explainlikeimfive</span>
+                            <span class="custom-subtitle">22.580.626 followers</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/technology" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">technology</span>
+                            <span class="custom-subtitle">15.234.567 subscribers</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/science" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">science</span>
+                            <span class="custom-subtitle">18.765.432 members</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/movies" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">movies</span>
+                            <span class="custom-subtitle">12.345.678 cinephiles</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/fitness" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">fitness</span>
+                            <span class="custom-subtitle">9.876.543 gym enthusiasts</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/food" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">food</span>
+                            <span class="custom-subtitle">14.567.890 foodies</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/travel" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">travel</span>
+                            <span class="custom-subtitle">11.234.567 adventurers</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/books" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">books</span>
+                            <span class="custom-subtitle">16.789.012 bookworms</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/sports" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">sports</span>
+                            <span class="custom-subtitle">20.123.456 sports fans</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/music" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">music</span>
+                            <span class="custom-subtitle">13.456.789 music lovers</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/history" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">history</span>
+                            <span class="custom-subtitle">9.012.345 historians</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/gaming" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">gaming</span>
+                            <span class="custom-subtitle">17.890.123 gamers</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/fashion" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">fashion</span>
+                            <span class="custom-subtitle">10.234.567 fashionistas</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+
+                <a href="/r/cars" class="custom-link">
+                    <div class="custom-link-content">
+                        <div class="custom-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="custom-text">
+                            <span class="custom-title">cars</span>
+                            <span class="custom-subtitle">8.765.432 car enthusiasts</span>
+                        </div>
+                    </div>
+                    <div class="custom-icon-placeholder"></div>
+                </a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function toggleDropdown(link) {
+            var dropdownMenu = link.nextElementSibling;
+            var icon = link.querySelector('i[id^="media-icon"],i[id^="users-icon"],i[id^="payments-icon"]'); // Busca el icono dentro del enlace
+
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+                icon.classList.remove('fa-arrow-circle-up'); // Quita la clase "fa-arrow-circle-up"
+                icon.classList.add('fa-arrow-circle-down'); // Agrega la clase "fa-arrow-circle-down"
+            } else {
+                dropdownMenu.style.display = 'block';
+                icon.classList.remove('fa-arrow-circle-down'); // Quita la clase "fa-arrow-circle-down"
+                icon.classList.add('fa-arrow-circle-up'); // Agrega la clase "fa-arrow-circle-up"
+            }
+        }
+    </script>
 
 </body>
 

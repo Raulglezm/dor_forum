@@ -43,3 +43,50 @@ h1, .h1 {
     font-size: 2.5rem;
     font-weight: normal;
 }
+
+
+.dashboard-nav-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.dashboard-nav-dropdown-toggle {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-nav-dropdown-toggle i {
+    margin-right: 5px;
+}
+
+.dashboard-nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #d41212;
+    border: 1px solid #460c0c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 120px; /* Ajusta el ancho del menú según sea necesario */
+}
+
+.dashboard-nav-dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.dashboard-nav-dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.dashboard-nav-dropdown.active .dashboard-nav-dropdown-menu {
+    display: block;
+}
+  
