@@ -96,6 +96,7 @@ body {
 
 .container {
     display: flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -103,6 +104,7 @@ body {
     max-width: 1416px;
     /* Ancho máximo del contenedor principal */
     margin: 0 auto;
+    margin-top: 50px;
     /* Centra el contenedor en la página */
 }
 
