@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha384-..." crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../CSS/index.css">
+    <style>
+        .container {
+            display: flex;
+            justify-content:left;
+            align-items:end;
+            height: 100vh; /* Usamos la altura completa del viewport */
+        }
+
+        
+        .card {
+            padding: 1%;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            max-width: 800px;
+            text-align: center;
+        }
+        .comments-section {
+            color: white;
+            text-align: left; /* Alinea el texto a la izquierda */
+            margin-top: 20px; /* Agrega margen superior */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            margin-left: 8cm; /* Separación de 6 centímetros desde el margen izquierdo */
+        }
+
+        /* Estilos para el formulario de comentarios */
+        .comment-form {
+            display: flex;
+            flex-direction: column; /* Alinea los elementos verticalmente */
+            align-items: flex-start; /* Alinea los elementos a la izquierda */
+            margin-top: 10px; /* Ajusta el margen superior */
+            width: 100%; /* Ocupa todo el ancho disponible */
+        }
+
+        .comment-form input[type="text"],
+        .comment-form button {
+            width: auto; /* Ajusta el ancho automáticamente */
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo" aria-label="Home">FORUM</a>
+            <div class="search-bar">
+                <form action="/search" method="GET">
+                    <input type="text" placeholder="Buscar en Forum">
+                </form>
+            </div>
+            <div class="actions">
+                <a href="https://www.reddit.com/login" class="login">Iniciar sesión</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Contenido de la publicación -->
+        <div class="dashboard-nav">
+            <header>
+                <a href="#" class="brand-logo">
+                    <i class="fas fa-signal-perfect"></i>
+                    <span>CATEGORIES</span>
+                </a>
+            </header>
+            <nav class="dashboard-nav-list">
+                <a href="#" class="dashboard-nav-item active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    dashboard
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-file-upload"></i>
+                    Upload
+                </a>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-photo-video"></i>
+                        Media
+                        <i id="media-icon" class="fas fa-arrow-circle-down icon-right"></i> <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Recent</a>
+                        <a href="#" class="dashboard-nav-item">Images</a>
+                        <a href="#" class="dashboard-nav-item">Video</a>
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-users"></i>
+                        Users
+                        <i id="users-icon" class="fas fa-arrow-circle-down  icon-right"></i>
+                        <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Subscribed</a>
+                        <a href="#" class="dashboard-nav-item">Non-subscribed</a>
+                        <a href="#" class="dashboard-nav-item">Banned</a>
+                        <a href="#" class="dashboard-nav-item">New</a>
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"
+                        onclick="toggleDropdown(this)">
+                        <i class="fas fa-money-check-alt"></i>
+                        Payments
+                        <i id="payments-icon" class="fas fa-arrow-circle-down icon-right"></i>
+                        <!-- Icono "circle down" -->
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu' style="display: none">
+                        <a href="#" class="dashboard-nav-item">All</a>
+                        <a href="#" class="dashboard-nav-item">Recent</a>
+                        <a href="#" class="dashboard-nav-item"> Projections</a>
+                    </div>
+                </div>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-cogs"></i>
+                    Settings
+                </a>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+                <div class="nav-item-divider"></div>
+                <a href="#" class="dashboard-nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                
+                <!-- Contenido del post -->
+                <div class="cardHeader">
+                    <div class="btnUser">
+                        <i class="fas fa-user-circle" style="font-size: 24px;"></i>
+                        <span class="username">Luis</span>
+                    </div>
+                    <span class="creationDate">hace 8 h</span>
+                </div>
+                <div class="text">
+                </div>
+                <img class="postImage" src="../images/glory-to-spez-v0-i2zxix7ly7sb1.webp" alt="Imagen del post">
+                <div class="icons">
+                    <button class="likeButton">
+                        <i class="fas fa-heart icon"></i>
+                        <b>
+                            <span class="likeCount">120 mil</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-comment icon"></i>
+                        <b>
+                            <span class="likeCount">678</span>
+                        </b>
+                    </button>
+                    <button class="commentButton">
+                        <i class="fas fa-share icon"></i>
+                        <b>
+                            <span class="likeCount">1378</span>
+                        </b>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Agregar más publicaciones similares aquí si es necesario -->
+
+            <!-- Sección de comentarios -->
+            <div class="comments-section">
+                <h2>Comentarios</h2>
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <div class="commentHeader">
+                        <div class="btnUser">
+                            <i class="fas fa-user-circle" style="font-size: 30px;"></i>
+                            <span class="username">User4567</span>
+                        </div>
+                        <span class="creationDate">hace 8 h</span>
+                    </div>
+                    <div class="comment-text">
+                        <p>jajajaj ale es tonto</p>
+                    </div>
+                </div>
+
+                <!-- Agregar más comentarios similares aquí si es necesario -->
+
+                <!-- Formulario para agregar un comentario -->
+                <form class="comment-form">
+                    <input type="text" size="115px" name="comment" placeholder="Escribe un comentario..." required>
+                    <button type="submit">Comentar</button>
+                </form>
+            </div>
+        </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
